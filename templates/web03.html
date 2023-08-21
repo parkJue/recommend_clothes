@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/web3.css') }}" />
+    <title>Web03</title>
+</head>
+<body>
+    <div id="weatherData">
+        <!-- 날씨 정보가 여기에 표시될 예정 -->
+    </div>
+
+    <div class="outfit-container">
+        <h2>오늘의 추천 옷</h2>
+        <div class="outfit-info">
+            <p>* 기온은 <span id="temp"></span>도입니다 *</p>
+        </div>
+        <div class="outfit-image">
+            <img src="#" alt="추천 옷 이미지">
+            <p>고객님께 추천하는 사이즈는 <span id="size"></span>입니다.</p>
+        </div>
+        <div class="outfit-actions">
+            <button id="searchAgain">다시 검색</button>
+            <button id="purchase">구매하기</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>IOI Project 조장: 이혜령</p>
+            <p>팀원: 이인, 박은주, 김채륜, 김채린</p>
+        </div>
+    </footer>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('http://127.0.0.1:5000/test');
+            const dataObject = await response.text();
+            console.log(dataObject);
+            temp.innerHTML = dataObject;
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('http://127.0.0.1:5000/test1');
+            const predict_result = await response.text();
+            console.log(predict_result);
+            size.innerHTML = predict_result;
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('http://127.0.0.1:5000/test2');
+            const image_link = await response.text();
+            console.log(image_link);
+
+            const imgElement = document.querySelector('img[alt="추천 옷 이미지"]');
+            imgElement.src = image_link;
+        });
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('http://127.0.0.1:5000/test3');
+            const purchase_link = await response.text();
+            console.log("purcharse_link :", purchase_link);
+
+            const purchaseButton = document.getElementById('purchase');
+            purchaseButton.addEventListener('click', () => {
+                window.location.href = purchase_link;
+            })
+        });
+
+        // 다시 검색 버튼 클릭 시 동작
+        document.getElementById('searchAgain').addEventListener('click', () => {
+            // 검색 화면으로 이동
+            window.location.href = 'web01.html';
+        });
+
+    </script>
+</body>
+</html>

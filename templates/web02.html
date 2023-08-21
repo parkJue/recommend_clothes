@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/web2.css') }}" />
+
+</head>
+<body>
+    <div id="content-wrapper">
+        <div id="weatherData">
+            <img class="icon" alt="Weather Icon"/>
+        </div>
+        <div class="search-container">
+            <span class="label-gender"><label>성별</label></span>
+            <label class="radio-label">
+                <input type="radio" name="gender" value="남자" id="gender">
+                <span class="label-content">남자</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="gender" value="여자" id="gender">
+                <span class="label-content">여자</span>
+            </label>
+        </div>
+    
+        <div class="search-container">
+            <label for="height" class="fixed-width">키</label>
+            <input id="height" name="height" type="number" placeholder="키를 입력하세요" min="0" step="1">
+        </div>
+        
+        <div class="search-container">
+            <label for="weight" class="fixed-width">몸무게</label>
+            <input id="weight" name="weight" type="number" placeholder="몸무게를 입력하세요" min="0" step="1">
+        </div>
+        
+        <div class="search-container">
+            <span class="label-holder"><label>핏</label></span>
+            <label class="radio-label">
+                <input type="radio" name="fit" value="적당함" id="fit">
+                <span class="label-content"">적당</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="fit" value="큼" id="fit">
+                <span class="label-content">큼</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="fit" value="작음" id="fit">
+                <span class="label-content">작음</span>
+            </label>
+        </div>
+    
+        <div class="search-button-container">
+            <button id="searchButton" onclick="onClickTest()">검색</button>
+        </div>
+        <div id="result">
+    
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>IOI Project 조장: 이혜령</p>
+            <p>팀원: 이인, 박은주, 김채륜, 김채린</p>
+        </div>
+    </footer>
+    <script>
+
+        async function onClickTest(){
+            const gender = document.getElementById('gender').value;
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const fit = document.getElementById('fit').value;
+            let temp = document.getElementById('temp').innerHTML;
+            temp = temp.split(' ')[1]; 
+            
+            const BASE_URL = 'http://127.0.0.1:5000/onclick';
+            try {
+                    const requestOption = {
+                    method : "POST",
+                    headers : {
+                        "Content-Type" : "application/json"
+                    },
+
+                    body : JSON.stringify({
+                        gender : gender,
+                        height : height,
+                        weight : weight,
+                        fit : fit,
+                        temp: temp
+                    })
+                };
+
+                const response = await fetch(`${BASE_URL}`, requestOption);
+                const data = await response.json();
+                console.log(data);
+                window.location.href="/web03.html";
+            } catch (error) {
+                throw error;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedCity = localStorage.getItem('selectedCity');
+            const iconSection = document.querySelector('.icon');
+            
+            const apiKey = 'ca3c57d21ef7591d018e467393935f00';
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}&units=metric`;
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const temp = data.main.temp;
+                    const description = data.weather[0].description;
+                    const icon = data.weather[0].icon;
+                    const iconURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+             
+                    const weatherHTML = `
+                        <span>${selectedCity}의 현재 기온
+                        <span id="temp"> ${temp}</span><br/>
+                        <span> ${description}</span>
+                        <img class="icon" src="${iconURL}" alt="Weather Icon" />
+                    `;
+                    document.getElementById('weatherData').innerHTML = weatherHTML;
+                })
+
+
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById('weatherData').innerText = 'Failed to fetch weather data';
+                });
+        });
+
+    </script>
+
+</body>
+</html>

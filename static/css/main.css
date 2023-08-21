@@ -1,0 +1,65 @@
+body {
+    font-family: 'Arial', sans-serif; /* 세련된 글꼴 */
+    background-color: #f4f4f4; /* 부드러운 배경색 */
+    color: #333; /* 일반 텍스트 색상 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em; /* 큰 제목 크기 */
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #007BFF;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-bottom: 20px; /* 간격 추가 */
+}
+
+.search-container span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#citySelect {
+    border: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 1em;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#startButton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* 변환 효과 추가 */
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* 마우스 오버 시 약간 확대 */
+}
+
+#startButton:active {
+    background-color: #004291;
+}

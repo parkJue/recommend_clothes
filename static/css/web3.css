@@ -1,0 +1,103 @@
+@font-face{
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+  
+  }
+  html{
+    margin: 0;
+    padding: 0;
+   }
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.outfit-container {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.outfit-container h2 {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-weight: normal;
+    font-style: normal;
+    color: #333;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.outfit-info p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.outfit-image {
+    margin: 20px 0;
+}
+
+.outfit-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.outfit-image p {
+    color: #666;
+}
+
+.outfit-actions button {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background-color: #ff6998;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.outfit-actions button:hover {
+    background-color: #ff0022;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #fff4f4;
+    color: rgb(152, 152, 152);
+    padding: 3px 0;
+    text-align: center;
+}
+.footer-container {
+    width: 100%;  /* 추가된 부분 */
+    max-width: 1200px;  /* 원하는 최대 너비로 설정, 필요에 따라 조정 */
+    margin: 0 auto;  /* 추가된 부분 */
+}
+/* .page-container:hover footer {
+  transform: translateY(0);
+} */
+
+.outfit-container .outfit-image{
+    font-size: larger;
+}
+.outfit-container .outfit-image span#size{
+    color: red;
+}

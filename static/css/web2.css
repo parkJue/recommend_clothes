@@ -1,0 +1,164 @@
+
+@font-face{
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+  
+  }
+   html{
+    margin: 0;
+    padding: 0;
+   }
+   body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    #content-wrapper{
+        margin: 100px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #weatherData{
+        font-family: 'NeoDunggeunmoPro-Regular';
+        font-size: 30px;
+        margin: 20px;
+    }
+
+    #content-wrapper #weatherData img.icon{
+        height: 18%;
+        width: 20%;
+        /* border: 3px solid green; */
+        display: inline;
+    }
+    .search-container {
+        font-family: 'NeoDunggeunmoPro-Regular';
+        font-weight: normal;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .search-container input {
+        font-family: 'NeoDunggeunmoPro-Regular';
+        width: 200px;
+        margin-right: 10px;
+        padding: 7px;
+    }
+
+
+    .search-button-container {
+        text-align: right;
+        margin-top: 15px;
+        padding: 0px 1.2%;
+        width: 80%;
+    }
+
+    #searchButton {
+        font-family: 'NeoDunggeunmoPro-Regular';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px; 
+        padding: 10px 40px;
+        background-color: #ff6998;
+    }
+
+    #searchButton:hover {
+        background-color: #ff0022;
+      }
+
+    footer {
+        width: 100%;
+        background-color: #fff4f4;
+        color: rgb(152, 152, 152);
+        padding: 3px 0;
+        text-align: center;
+        margin: 0;
+    }
+    .footer-container {
+        width: 100%;  /* 추가된 부분 */
+        max-width: 1200px;  /* 원하는 최대 너비로 설정, 필요에 따라 조정 */
+        margin: 0 auto;  /* 추가된 부분 */
+    }
+    .radio-label {
+        position: relative;
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        flex-direction: row; /* 아이템들을 가로 방향으로 배열 */
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        border-radius: 35px;
+        padding: 0;
+        border: 2px solid transparent;
+        background-color: #D3D3D3;
+    }
+    
+    .label-content {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 35px;
+        border: 2px solid transparent;
+        width: 80px;
+        text-align: center;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    input[type="radio"]:checked + .label-content {
+        color: white; /* 선택 시 글자색 변경 */
+    }
+    
+    .search-container label{
+        margin-right: 5px; /* 라벨과 입력 필드 간의 간격 */
+        font-weight: bold;
+    }
+    
+    .fixed-width {
+        display: inline-block;
+        width: 80px; /* 최대 라벨 너비에 맞게 설정 */
+        margin-left: 5px;
+        color: #ff6998;
+        font-size: larger;
+    }
+
+    
+    input[type="number"] {
+        padding: 10px 15px; /* 편안한 패딩 */
+        border: 2px solid #ccc; /* 초기 테두리 색상 */
+        border-radius: 5px; /* 부드러운 모서리 */
+        background-color: #f9f9f9; /* 부드러운 배경색 */
+        font-size: 14px; /* 텍스트 크기 */
+        transition: border-color 0.3s; /* 테두리 색상 전환 효과 */
+    }
+    
+    input[type="number"]:focus {
+        border-color: #ff6998; /* 포커스 시 파란색 테두리 */
+        outline: none; /* 브라우저 기본 포커스 스타일 제거 */
+    }
+
+    .label-holder {
+        display: inline-block;
+        color: #ff6998;
+        width: 87px;  /* 적절한 너비로 조정 가능 */
+        font-size: larger;
+    }
+    .label-gender{
+        color: #ff6998;
+        width: 166px;
+        display: inline-block;
+        font-size: larger;
+    }

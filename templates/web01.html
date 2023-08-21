@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/web1.css') }}" />
+    <title>Web01</title>
+</head>
+<body>
+    <div class="title-frame">
+        <h1>나의 온라인 쇼핑 메이트</h1>
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/2990/2990562.png" style="width:100%">
+          <div class="text"></div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/1686/1686032.png" style="width:100%">
+          <div class="text"></div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/3751/3751538.png" style="width:100%">
+          <div class="text"></div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+
+    <h3>
+        날씨에 따라 적절한 옷차림과 사이즈를 추천해주는 사이트입니다.
+    </h3>
+    <h3>
+        위치를 선택하세요 
+    </h3>
+
+        <div class="search-container">
+            <select id="citySelect"> <!-- 도시 선택을 위한 id 추가 -->
+                <option value="Gwangju">Gwangju</option>
+                <option value="Seoul">Seoul</option>
+                <option value="Jeju">Jeju</option>
+                <option value="Daejeon">Daejeon</option>
+                <option value="Busan">Busan</option>
+                <option value="Incheon ">Incheon</option>
+                <option value="Ulsan">Ulsan</option>
+                <option value="Sejong">Sejong</option>
+            </select>
+            <button id="startButton">시작하기</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>IOI Project 조장: 이혜령</p>
+            <p>팀원: 이인, 박은주, 김채륜, 김채린</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', () => {
+            const selectedCity = document.getElementById('citySelect').value;
+            localStorage.setItem('selectedCity', selectedCity); // 선택한 도시를 저장
+            window.location.href = "web02.html";
+        });
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
